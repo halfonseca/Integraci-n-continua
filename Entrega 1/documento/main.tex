@@ -32,7 +32,7 @@
 
 La integración continua consiste en que los integrantes de un equipo incorporen sus cambios al código compartido con frecuencia y en que cada cambio sea verificado de forma automática \parencite{fowler2006, oliveros_fundamentos}. Para que esta práctica sea posible, el código debe alojarse en un repositorio centralizado con control de versiones \parencite{oliveros_repositorios}, y el ambiente de ejecución debe poder reproducirse en cualquier equipo \parencite{oliveros_maquinas}.
 
-Este documento corresponde a la primera entrega del proyecto grupal del módulo. Su objetivo es alojar el proyecto en GitHub y usar Docker para construir dos contenedores que se comunican entre sí.
+Este documento corresponde a la primera entrega del proyecto del módulo. Su objetivo es alojar el proyecto en GitHub y usar Docker para construir dos contenedores que se comunican entre sí.
 
 \newpage
 \section{Marco conceptual}
@@ -228,7 +228,7 @@ PostgreSQL & 16.15 \\
 
 Se cumplió el requisito de la Entrega 1. El proyecto está alojado en GitHub y los dos contenedores construidos con Docker se comunican entre sí: la aplicación web registra cada visita en PostgreSQL y los datos se conservan en el contenedor de la base de datos.
 
-La solución tiene limitaciones que deben tenerse en cuenta en las siguientes entregas. La aplicación usa el servidor de desarrollo de Flask, que no es adecuado para producción. Las credenciales están escritas en el archivo de Compose, lo que solo es aceptable en un entorno de desarrollo. Además, la imagen de PostgreSQL ocupa 420 MB, casi el doble de la imagen de la aplicación (212 MB). Las siguientes entregas incorporarán Jenkins, Travis CI y Codeship.
+La solución tiene limitaciones que deben tenerse en cuenta. La aplicación usa el servidor de desarrollo de Flask, que no es adecuado para producción. Las credenciales están escritas en el archivo de Compose, lo que solo es aceptable en un entorno de desarrollo. Además, la imagen de PostgreSQL ocupa 420 MB, casi el doble de la imagen de la aplicación (212 MB).
 
 \newpage
 \printbibliography
