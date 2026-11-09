@@ -12,7 +12,10 @@ Entrega 1 de Integración Continua. El proyecto levanta dos contenedores comunic
 
 ## Ejecución
 
+Todos los comandos de Docker Compose se ejecutan desde la carpeta `proyecto/`:
+
 ```bash
+cd proyecto
 docker compose up --build -d
 curl http://localhost:5000/
 ```
@@ -20,6 +23,8 @@ curl http://localhost:5000/
 Cada petición a `/` incrementa el contador guardado en PostgreSQL.
 
 ## Verificación
+
+Desde la carpeta `proyecto/`:
 
 ```bash
 docker compose ps
