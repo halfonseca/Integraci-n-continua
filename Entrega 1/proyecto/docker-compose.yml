@@ -1,0 +1,35 @@
+services:
+  web:
+    build: ./app
+    container_name: web
+    ports:
+      - "5000:5000"
+    environment:
+      DB_HOST: db
+      POSTGRES_DB: visitas
+      POSTGRES_USER: usuario
+      POSTGRES_PASSWORD: clave
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - red_app
+
+  db:
+    build: ./db
+    container_name: db
+    environment:
+      POSTGRES_DB: visitas
+      POSTGRES_USER: usuario
+      POSTGRES_PASSWORD: clave
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U usuario -d visitas"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+    networks:
+      - red_app
+
+networks:
+  red_app:
+    driver: bridge
