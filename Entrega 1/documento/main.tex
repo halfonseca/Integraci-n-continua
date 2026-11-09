@@ -4,8 +4,10 @@
 \addto\captionsspanish{\renewcommand{\tablename}{Tabla}}
 \usepackage{csquotes}
 \usepackage[style=apa,backend=biber,language=auto]{biblatex}
+\usepackage{times}
 \usepackage{booktabs}
 \usepackage{listings}
+\hypersetup{hidelinks}
 
 \addbibresource{referencias.bib}
 
@@ -32,6 +34,7 @@ La integración continua consiste en que los integrantes de un equipo incorporen
 
 Este documento corresponde a la primera entrega del proyecto grupal del módulo. Su objetivo es alojar el proyecto en GitHub y usar Docker para construir dos contenedores que se comunican entre sí.
 
+\newpage
 \section{Marco conceptual}
 
 \subsection{Máquinas virtuales y contenedores}
@@ -46,6 +49,7 @@ Docker empaqueta una aplicación con sus dependencias en una imagen, que se desc
 
 Git guarda el historial de cambios del proyecto como instantáneas del repositorio en el tiempo, y GitHub aloja repositorios Git en la nube \parencite{oliveros_repositorios, github_docs}.
 
+\newpage
 \section{Desarrollo del proyecto}
 
 \subsection{Repositorio en GitHub}
@@ -60,7 +64,7 @@ La solución tiene dos servicios, descritos en la Tabla~\ref{tab:servicios}. Cad
 \centering
 \caption{Servicios del proyecto}
 \label{tab:servicios}
-\begin{tabular}{@{}p{1.6cm}p{4.2cm}p{3cm}p{5.6cm}@{}}
+\begin{tabular}{@{}p{1.5cm}p{4.9cm}p{2.9cm}p{4.9cm}@{}}
 \toprule
 Servicio & Imagen base & Puerto & Función \\
 \midrule
@@ -219,12 +223,14 @@ PostgreSQL & 16.15 \\
 \end{tabular}
 \end{table}
 
+\newpage
 \section{Conclusiones}
 
 Se cumplió el requisito de la Entrega 1. El proyecto está alojado en GitHub y los dos contenedores construidos con Docker se comunican entre sí: la aplicación web registra cada visita en PostgreSQL y los datos se conservan en el contenedor de la base de datos.
 
 La solución tiene limitaciones que deben tenerse en cuenta en las siguientes entregas. La aplicación usa el servidor de desarrollo de Flask, que no es adecuado para producción. Las credenciales están escritas en el archivo de Compose, lo que solo es aceptable en un entorno de desarrollo. Además, la imagen de PostgreSQL ocupa 420 MB, casi el doble de la imagen de la aplicación (212 MB). Las siguientes entregas incorporarán Jenkins, Travis CI y Codeship.
 
+\newpage
 \printbibliography
 
 \end{document}
